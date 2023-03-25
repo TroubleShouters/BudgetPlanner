@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/tv_title_total_budget"
-        style="@style/Text.MediumSmall"
+        style="@style/Text.Medium14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/tv_total_budget"
-        style="@style/Text.BoldLarge"
+        style="@style/Text.Bold24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
