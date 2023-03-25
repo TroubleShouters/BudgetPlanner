@@ -13,4 +13,36 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Text Styles -->
+    <style name="Text">
+        <item name="android:textColor">?colorOnSecondary</item>
+    </style>
+
+    <style name="Text.MediumSmall">
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.BoldLarge">
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Button">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="backgroundTint">@color/lime</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="cornerRadius">32dp</item>
+        <item name="strokeColor">?colorOnSecondary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="iconTint">?colorOnSecondary</item>
+
+    </style>
+
+
 </resources>
