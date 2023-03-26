@@ -70,7 +70,10 @@
         <item name="strokeColor">?colorOnSecondary</item>
         <item name="strokeWidth">2dp</item>
         <item name="iconTint">?colorOnSecondary</item>
+    </style>
 
+    <style name="Button.White">
+        <item name="backgroundTint">@color/white</item>
     </style>
 
 

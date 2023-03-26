@@ -10,4 +10,6 @@
     <string name="see_report">See Report</string>
     <string name="create_plan">Create Plan</string>
     <string name="edit_plan_button">Edit plan button</string>
+    <string name="add_income">Add Income</string>
+    <string name="add_spending">Add Spending</string>
 </resources>
