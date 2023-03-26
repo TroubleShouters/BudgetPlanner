@@ -11,18 +11,18 @@
         style="@style/PlanTypeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Daily"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Daily" />
 
     <TextView
         android:id="@+id/tv_date"
         style="@style/Text.Regular14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="February 15, 2023"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="February 15, 2023" />
 
     <TextView
         android:id="@+id/tv_plan_title"
@@ -43,5 +43,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_title"
         tools:text="25.000" />
+
+    <com.mackhartley.roundedprogressbar.RoundedProgressBar
+        android:id="@+id/roundedProgressBar"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_plan_amount"
+        app:rpbBackgroundColor="@color/light_gray"
+        app:rpbCornerRadius="12dp"
+        app:rpbProgress="50"
+        app:rpbProgressColor="@color/lime"
+        app:rpbShowProgressText="false" />
+
+    <TextView
+        android:id="@+id/tv_current_spending"
+        style="@style/Text.Bold14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="12.500"
+        app:layout_constraintStart_toStartOf="@+id/roundedProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/roundedProgressBar" />
+
+    <TextView
+        android:id="@+id/tv_progress_percentage"
+        style="@style/Text.Bold14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="50%"
+        app:layout_constraintEnd_toEndOf="@+id/roundedProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/roundedProgressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
