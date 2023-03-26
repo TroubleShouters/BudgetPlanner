@@ -43,6 +43,16 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="PlanTypeLabel">
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:backgroundTint">@color/lime</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
     <!-- Button Styles -->
     <style name="Button">
         <item name="textAllCaps">false</item>
