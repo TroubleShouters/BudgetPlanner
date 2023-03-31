@@ -12,4 +12,5 @@
     <string name="edit_plan_button">Edit plan button</string>
     <string name="add_income">Add Income</string>
     <string name="add_spending">Add Spending</string>
+    <string name="your_plans">Your Plans</string>
 </resources>
