@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.troubleshouters.budgetplanner.databinding.FragmentPlanBinding
 
 class PlanFragment : Fragment() {
@@ -28,6 +29,28 @@ class PlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupPlanSummaryView()
+    }
+
+    private fun setupPlanSummaryView() {
+        binding.viewPlanSummary.apply {
+            btnSeeReport.setOnClickListener {view ->
+                moveToReport(view)
+            }
+
+            btnCreatePlan.setOnClickListener {view ->
+                moveToCreatePlan(view)
+            }
+        }
+    }
+
+    private fun moveToReport(view: View) {
+        // TODO: Move to ReportActivity
+    }
+
+    private fun moveToCreatePlan(view: View) {
+        val destination = PlanFragmentDirections.actionNavigationPlanFragmentToCreatePlanActivity()
+        view.findNavController().navigate(destination)
     }
 
 }

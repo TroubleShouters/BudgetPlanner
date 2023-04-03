@@ -14,10 +14,19 @@
         android:id="@+id/navigation_plan_fragment"
         android:name="com.troubleshouters.budgetplanner.ui.plan.PlanFragment"
         android:label="fragment_plan"
-        tools:layout="@layout/fragment_plan" />
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/action_navigation_plan_fragment_to_createPlanActivity"
+            app:destination="@id/createPlanActivity" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_settings_fragment"
         android:name="com.troubleshouters.budgetplanner.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/createPlanActivity"
+        android:name="com.troubleshouters.budgetplanner.ui.plan.CreatePlanActivity"
+        android:label="activity_create_plan"
+        tools:layout="@layout/activity_create_plan" />
 </navigation>
