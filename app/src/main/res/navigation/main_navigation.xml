@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_transactions_fragment">
+
+    <fragment
+        android:id="@+id/navigation_transactions_fragment"
+        android:name="com.troubleshouters.budgetplanner.ui.transactions.TransactionsFragment"
+        android:label="fragment_transactions"
+        tools:layout="@layout/fragment_transactions" />
+    <fragment
+        android:id="@+id/navigation_plan_fragment"
+        android:name="com.troubleshouters.budgetplanner.ui.plan.PlanFragment"
+        android:label="fragment_plan"
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/action_navigation_plan_fragment_to_createPlanActivity"
+            app:destination="@id/createPlanActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_settings_fragment"
+        android:name="com.troubleshouters.budgetplanner.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/createPlanActivity"
+        android:name="com.troubleshouters.budgetplanner.ui.plan.CreatePlanActivity"
+        android:label="activity_create_plan"
+        tools:layout="@layout/activity_create_plan" />
+</navigation>

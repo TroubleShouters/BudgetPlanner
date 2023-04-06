@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Budget Planner</string>
+    <string name="plan">Plan</string>
+    <string name="transaction">Transaction</string>
+    <string name="settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="total_budget">Total Budget:</string>
+    <string name="_1_000_000">1.000.000</string>
+    <string name="see_report">See Report</string>
+    <string name="create_plan">Create Plan</string>
+    <string name="edit_plan_button">Edit plan button</string>
+    <string name="add_income">Add Income</string>
+    <string name="add_spending">Add Spending</string>
+    <string name="your_plans">Your Plans</string>
+    <string name="type">Type</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="title">Title</string>
+    <string name="budget">Budget</string>
+    <string name="transactions">Transactions</string>
 </resources>
