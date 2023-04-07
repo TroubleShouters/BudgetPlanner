@@ -1,10 +1,11 @@
-package com.troubleshouters.budgetplanner.data.local
+package com.troubleshouters.budgetplanner.data.local.transaction
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.troubleshouters.budgetplanner.model.TransactionType
+import com.troubleshouters.budgetplanner.data.local.plan.Plan
+import com.troubleshouters.budgetplanner.data.enums.TransactionType
 
 @Entity(
     tableName = "transactions",

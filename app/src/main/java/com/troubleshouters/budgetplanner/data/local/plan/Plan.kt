@@ -1,10 +1,10 @@
-package com.troubleshouters.budgetplanner.data.local
+package com.troubleshouters.budgetplanner.data.local.plan
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.troubleshouters.budgetplanner.model.PlanType
+import com.troubleshouters.budgetplanner.data.enums.PlanType
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

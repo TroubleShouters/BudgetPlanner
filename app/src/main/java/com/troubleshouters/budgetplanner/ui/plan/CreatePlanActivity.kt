@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.troubleshouters.budgetplanner.R
 import com.troubleshouters.budgetplanner.databinding.ActivityCreatePlanBinding
-import com.troubleshouters.budgetplanner.model.Plan
-import com.troubleshouters.budgetplanner.model.PlanType
+import com.troubleshouters.budgetplanner.data.enums.PlanType
 
 class CreatePlanActivity : AppCompatActivity() {
 
@@ -34,11 +33,6 @@ class CreatePlanActivity : AppCompatActivity() {
 
     private fun setupButtonListener() {
         binding.buttonSave.setOnClickListener {
-            val plan = Plan(
-                checkedPlanType,
-                binding.etTitle.text.toString(),
-                binding.etBudget.text.toString().toInt()
-            )
             TODO("Save plan to database")
         }
     }

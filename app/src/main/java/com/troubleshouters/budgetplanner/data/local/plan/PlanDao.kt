@@ -1,4 +1,4 @@
-package com.troubleshouters.budgetplanner.data.local
+package com.troubleshouters.budgetplanner.data.local.plan
 
 import androidx.room.*
 
