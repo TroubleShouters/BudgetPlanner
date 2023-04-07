@@ -4,6 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.troubleshouters.budgetplanner.data.local.plan.Plan
+import com.troubleshouters.budgetplanner.data.local.plan.PlanDao
+import com.troubleshouters.budgetplanner.data.local.transaction.Transaction
+import com.troubleshouters.budgetplanner.data.local.transaction.TransactionDao
 
 @Database(entities = [Plan::class, Transaction::class], version = 1)
 abstract class BudgetPlannerDatabase : RoomDatabase() {
