@@ -16,8 +16,8 @@ class PlanViewModel @Inject constructor(
     private val planRepository: PlanRepository
 ) : ViewModel() {
 
-    private val _plan = MutableLiveData<Plan?>()
-    val plan: LiveData<Plan?> = _plan
+    private val _planLiveData = MutableLiveData<Plan?>()
+    val planLiveData: LiveData<Plan?> get() = _planLiveData
 
     val allPlans: LiveData<List<Plan>> = liveData {
         val plans = planRepository.getAllPlans()
@@ -27,7 +27,7 @@ class PlanViewModel @Inject constructor(
     fun getPlanById(planId: Long) {
         viewModelScope.launch {
             val plan = planRepository.getPlanById(planId)
-            _plan.value = plan
+            _planLiveData.postValue(plan)
         }
     }
 
