@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CreatePlanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreatePlanBinding
-    private lateinit var checkedPlanType: PlanType
+    private var checkedPlanType: PlanType = PlanType.DAILY
     private val viewModel: PlanViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
