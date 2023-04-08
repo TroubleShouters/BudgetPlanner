@@ -9,6 +9,7 @@ import com.troubleshouters.budgetplanner.data.enums.PlanType
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.ui.viewmodel.PlanViewModel
 import com.troubleshouters.budgetplanner.utils.showSnackbar
+import com.troubleshouters.budgetplanner.utils.showSuccessDialogWithAction
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -60,8 +61,13 @@ class CreatePlanActivity : AppCompatActivity() {
     private fun insertNewPlan(plan: Plan) {
         try {
             viewModel.insertPlan(plan)
-            showSnackbar(binding.root, "Plan saved successfully")
-            finish()
+            showSuccessDialogWithAction(
+                this,
+                "Plan is saved successfully",
+                "OK"
+            ) {
+                finish()
+            }
         } catch (e: Exception) {
             showSnackbar(binding.root, "Failed to save plan")
         }
