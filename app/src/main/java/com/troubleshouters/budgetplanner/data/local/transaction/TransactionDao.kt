@@ -20,6 +20,6 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions WHERE id = :id")
     suspend fun getTransactionById(id: Long): Transaction?
 
-    @Query("SELECT * FROM transactions WHERE planId = :planId")
+    @Query("SELECT * FROM transactions WHERE plan_id = :planId")
     suspend fun getAllTransactionsForPlan(planId: Long): List<Transaction>
 }
