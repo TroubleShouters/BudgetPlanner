@@ -3,12 +3,12 @@ package com.troubleshouters.budgetplanner.ui.plan
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.google.android.material.snackbar.Snackbar
 import com.troubleshouters.budgetplanner.R
 import com.troubleshouters.budgetplanner.databinding.ActivityCreatePlanBinding
 import com.troubleshouters.budgetplanner.data.enums.PlanType
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.ui.viewmodel.PlanViewModel
+import com.troubleshouters.budgetplanner.utils.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,22 +39,20 @@ class CreatePlanActivity : AppCompatActivity() {
     }
 
     private fun setupButtonListener() {
-        binding.apply {
-            buttonSave.setOnClickListener {
-                val title = etTitle.text.toString()
-                val budgetText = etBudget.text.toString()
-                val budget = budgetText.toDoubleOrNull()
+        binding.buttonSave.setOnClickListener {
+            val title = binding.etTitle.text.toString()
+            val budgetText = binding.etBudget.text.toString()
+            val budget = budgetText.toDoubleOrNull()
 
-                if (title.isNotEmpty() && budget != null) {
-                    val plan = Plan(
-                        planType = checkedPlanType,
-                        title = title,
-                        budget = budget
-                    )
-                    insertNewPlan(plan)
-                } else {
-                    TODO("Show error message")
-                }
+            if (title.isNotEmpty() && budget != null) {
+                val plan = Plan(
+                    planType = checkedPlanType,
+                    title = title,
+                    budget = budget
+                )
+                insertNewPlan(plan)
+            } else {
+                showSnackbar(binding.root, "Title or/and budget is empty")
             }
         }
     }
@@ -62,14 +60,10 @@ class CreatePlanActivity : AppCompatActivity() {
     private fun insertNewPlan(plan: Plan) {
         try {
             viewModel.insertPlan(plan)
-            Snackbar.make(
-                binding.root,
-                "Plan saved successfully",
-                Snackbar.LENGTH_SHORT
-            ).show()
+            showSnackbar(binding.root, "Plan saved successfully")
             finish()
         } catch (e: Exception) {
-            TODO("Handle exception")
+            showSnackbar(binding.root, "Failed to save plan")
         }
     }
 }
