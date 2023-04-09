@@ -1,5 +1,6 @@
 package com.troubleshouters.budgetplanner.data.repository
 
+import androidx.lifecycle.LiveData
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.data.local.plan.PlanDao
 import com.troubleshouters.budgetplanner.data.local.transaction.Transaction
@@ -19,6 +20,10 @@ class PlanRepository @Inject constructor(
 
     suspend fun getPlanById(planId: Long): Plan? {
         return planDao.getPlanById(planId)
+    }
+
+    fun getPlanBudgetForAMonth(): LiveData<Double> {
+        return planDao.getPlanBudgetForAMonth()
     }
 
     suspend fun insertPlan(plan: Plan) {

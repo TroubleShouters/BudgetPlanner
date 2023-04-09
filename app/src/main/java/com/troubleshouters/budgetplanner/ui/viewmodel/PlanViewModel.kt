@@ -9,6 +9,7 @@ import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.data.repository.PlanRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,7 +18,8 @@ class PlanViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _planLiveData = MutableLiveData<Plan?>()
-    val planLiveData: LiveData<Plan?> get() = _planLiveData
+    val planLiveData: LiveData<Plan?>
+        get() = _planLiveData
 
     val allPlans: LiveData<List<Plan>> = liveData {
         val plans = planRepository.getAllPlans()
@@ -30,6 +32,8 @@ class PlanViewModel @Inject constructor(
             _planLiveData.postValue(plan)
         }
     }
+
+    fun getPlanBudgetForAMonth(): LiveData<Double> = planRepository.getPlanBudgetForAMonth()
 
     fun insertPlan(plan: Plan) {
         viewModelScope.launch {
