@@ -6,10 +6,10 @@ import androidx.room.*
 @Dao
 interface PlanDao {
     @Query("SELECT * FROM plans")
-    suspend fun getAllPlans(): List<Plan>
+    fun getAllPlans(): LiveData<List<Plan>>
 
     @Query("SELECT * FROM plans WHERE id = :id")
-    suspend fun getPlanById(id: Long): Plan?
+    fun getPlanById(id: Long): LiveData<Plan?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPlan(plan: Plan)

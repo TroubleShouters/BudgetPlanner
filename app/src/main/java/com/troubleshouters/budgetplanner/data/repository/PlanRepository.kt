@@ -14,11 +14,11 @@ class PlanRepository @Inject constructor(
     private val transactionDao: TransactionDao
 ) {
 
-    suspend fun getAllPlans(): List<Plan> {
+    fun getAllPlans(): LiveData<List<Plan>> {
         return planDao.getAllPlans()
     }
 
-    suspend fun getPlanById(planId: Long): Plan? {
+    fun getPlanById(planId: Long): LiveData<Plan?> {
         return planDao.getPlanById(planId)
     }
 
