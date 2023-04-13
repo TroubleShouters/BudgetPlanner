@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.troubleshouters.budgetplanner.data.local.plan.Plan
+import com.troubleshouters.budgetplanner.R
 import com.troubleshouters.budgetplanner.databinding.FragmentPlanBinding
 import com.troubleshouters.budgetplanner.ui.adapter.PlanListAdapter
 import com.troubleshouters.budgetplanner.ui.viewmodel.PlanViewModel
+import com.troubleshouters.budgetplanner.utils.DividerItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +35,11 @@ class PlanFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.rvPlanList.layoutManager = LinearLayoutManager(context)
+        val layoutManager = LinearLayoutManager(context)
+        binding.rvPlanList.layoutManager = layoutManager
+
+        val itemDecoration = DividerItemDecoration(requireContext(), R.drawable.divider_plan)
+        binding.rvPlanList.addItemDecoration(itemDecoration)
 
         planViewModel.getAllPlans().observe(viewLifecycleOwner) {plans ->
             planAdapter = PlanListAdapter(plans)
