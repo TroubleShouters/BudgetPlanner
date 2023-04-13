@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.databinding.FragmentPlanBinding
 import com.troubleshouters.budgetplanner.ui.adapter.PlanListAdapter
@@ -27,34 +28,31 @@ class PlanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPlanBinding.inflate(inflater, container, false)
-
-        // Initialize the adapter and set it to the RecyclerView
-        planAdapter = PlanListAdapter(emptyList())
-        binding.rvPlanList.adapter = planAdapter
+        setupRecyclerView()
 
         return binding.root
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
+    private fun setupRecyclerView() {
+        binding.rvPlanList.layoutManager = LinearLayoutManager(context)
+
+        planViewModel.getAllPlans().observe(viewLifecycleOwner) {plans ->
+            planAdapter = PlanListAdapter(plans)
+            binding.rvPlanList.adapter = planAdapter
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        subscribe()
+        setupBudgetSum()
         setupPlanSummaryView()
     }
 
-    private fun subscribe() {
+    private fun setupBudgetSum() {
         planViewModel.getPlanBudgetForAMonth().observe(viewLifecycleOwner) {budget ->
             binding.viewPlanSummary.tvTotalBudget.text = budget.toInt().toString()
             Log.d("plan_debug", "Observer executed, update tvTotalBudget")
-        }
-
-        planViewModel.getAllPlans().observe(viewLifecycleOwner) {plans ->
-            setupPlanList(plans)
         }
     }
 
@@ -79,9 +77,8 @@ class PlanFragment : Fragment() {
         view.findNavController().navigate(destination)
     }
 
-    private fun setupPlanList(plans: List<Plan>) {
-        val planAdapter = PlanListAdapter(plans)
-        binding.rvPlanList.adapter = planAdapter
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
-
 }
