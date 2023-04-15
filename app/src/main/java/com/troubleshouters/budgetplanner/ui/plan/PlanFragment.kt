@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.troubleshouters.budgetplanner.R
+import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.databinding.FragmentPlanBinding
 import com.troubleshouters.budgetplanner.ui.adapter.PlanListAdapter
 import com.troubleshouters.budgetplanner.ui.viewmodel.PlanViewModel
@@ -36,14 +38,23 @@ class PlanFragment : Fragment() {
 
     private fun setupRecyclerView() {
         val layoutManager = LinearLayoutManager(context)
-        binding.rvPlanList.layoutManager = layoutManager
-
         val itemDecoration = DividerItemDecoration(requireContext(), R.drawable.divider_plan)
+
+        binding.rvPlanList.layoutManager = layoutManager
         binding.rvPlanList.addItemDecoration(itemDecoration)
 
+        planAdapter = PlanListAdapter(emptyList())
+        planAdapter.setOnPlanEditClickListener(object : PlanListAdapter.OnPlanEditClickListener {
+            override fun onPlanEditClick(plan: Plan) {
+                val destination = PlanFragmentDirections.actionNavigationPlanFragmentToEditPlanActivity(plan)
+                this@PlanFragment.findNavController().navigate(destination)
+            }
+        })
+
+        binding.rvPlanList.adapter = planAdapter
+
         planViewModel.getAllPlans().observe(viewLifecycleOwner) {plans ->
-            planAdapter = PlanListAdapter(plans)
-            binding.rvPlanList.adapter = planAdapter
+            planAdapter.submitList(plans)
         }
     }
 
@@ -80,6 +91,10 @@ class PlanFragment : Fragment() {
     private fun moveToCreatePlan(view: View) {
         val destination = PlanFragmentDirections.actionNavigationPlanFragmentToCreatePlanActivity()
         view.findNavController().navigate(destination)
+    }
+
+    private fun moveToEditPlan(view: View, plan: Plan) {
+        // TODO: Move to EditPlan Activity with SafeArgs
     }
 
     override fun onDestroy() {

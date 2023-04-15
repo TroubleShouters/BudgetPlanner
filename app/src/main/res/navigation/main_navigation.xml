@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_navigation_plan_fragment_to_createPlanActivity"
             app:destination="@id/createPlanActivity" />
+        <action
+            android:id="@+id/action_navigation_plan_fragment_to_editPlanActivity"
+            app:destination="@id/editPlanActivity" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings_fragment"
@@ -29,4 +32,13 @@
         android:name="com.troubleshouters.budgetplanner.ui.plan.CreatePlanActivity"
         android:label="activity_create_plan"
         tools:layout="@layout/activity_create_plan" />
+    <activity
+        android:id="@+id/editPlanActivity"
+        android:name="com.troubleshouters.budgetplanner.ui.plan.EditPlanActivity"
+        android:label="activity_edit_plan"
+        tools:layout="@layout/activity_edit_plan">
+        <argument
+            android:name="plan"
+            app:argType="com.troubleshouters.budgetplanner.data.local.plan.Plan" />
+    </activity>
 </navigation>

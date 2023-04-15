@@ -2,13 +2,24 @@ package com.troubleshouters.budgetplanner.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.troubleshouters.budgetplanner.data.enums.PlanType
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.databinding.ViewPlanItemBinding
 
-class PlanListAdapter(private val plans: List<Plan>) :
+class PlanListAdapter(private var plans: List<Plan>) :
     RecyclerView.Adapter<PlanListAdapter.PlanViewHolder>() {
+
+    private var onPlanEditClickListener: OnPlanEditClickListener? = null
+
+    interface OnPlanEditClickListener {
+        fun onPlanEditClick(plan: Plan)
+    }
+
+    fun setOnPlanEditClickListener(listener: OnPlanEditClickListener) {
+        onPlanEditClickListener = listener
+    }
 
     inner class PlanViewHolder(private val binding: ViewPlanItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -24,6 +35,10 @@ class PlanListAdapter(private val plans: List<Plan>) :
             binding.tvPlanType.text = plan.planType.name
             binding.tvPlanAmount.text = plan.budget.toString()
             binding.tvPlanMonthlyTotal.text = totalBudget.toString()
+
+            binding.btnEdit.setOnClickListener {
+                onPlanEditClickListener?.onPlanEditClick(plan)
+            }
         }
     }
 
@@ -39,4 +54,10 @@ class PlanListAdapter(private val plans: List<Plan>) :
     override fun getItemCount(): Int {
         return plans.size
     }
+
+    fun submitList(plans: List<Plan>) {
+        this.plans = plans
+        this.notifyDataSetChanged()
+    }
+
 }
