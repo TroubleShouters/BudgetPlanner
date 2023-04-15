@@ -68,7 +68,6 @@ class PlanFragment : Fragment() {
     private fun setupBudgetSum() {
         planViewModel.getPlanBudgetForAMonth().observe(viewLifecycleOwner) {budget ->
             binding.viewPlanSummary.tvTotalBudget.text = budget.toInt().toString()
-            Log.d("plan_debug", "Observer executed, update tvTotalBudget")
         }
     }
 
@@ -91,10 +90,6 @@ class PlanFragment : Fragment() {
     private fun moveToCreatePlan(view: View) {
         val destination = PlanFragmentDirections.actionNavigationPlanFragmentToCreatePlanActivity()
         view.findNavController().navigate(destination)
-    }
-
-    private fun moveToEditPlan(view: View, plan: Plan) {
-        // TODO: Move to EditPlan Activity with SafeArgs
     }
 
     override fun onDestroy() {
