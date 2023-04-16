@@ -12,14 +12,28 @@ fun showSnackbar(rootView: View, text: String, duration: Int = Snackbar.LENGTH_S
 fun showSuccessDialogWithAction(
     context: Context,
     message: String,
-    actionText: String,
+    actionText: String = "OK",
     action: () -> Unit
 ) {
-    val builder = AlertDialog.Builder(context)
-    builder.setMessage(message)
-        .setPositiveButton(actionText) { dialog, id ->
-            action.invoke()
-        }
-    val dialog = builder.create()
-    dialog.show()
+    AlertDialog.Builder(context)
+        .setMessage(message)
+        .setPositiveButton(actionText) { _, _ -> action.invoke() }
+        .create()
+        .show()
+}
+
+fun showConfirmationDialog(
+    context: Context,
+    message: String,
+    confirmText: String = "OK",
+    cancelText: String = "Cancel",
+    confirmAction: () -> Unit,
+    cancelAction: () -> Unit = {}
+) {
+    AlertDialog.Builder(context)
+        .setMessage(message)
+        .setPositiveButton(confirmText) { _, _ -> confirmAction.invoke() }
+        .setNegativeButton(cancelText) { _, _ -> cancelAction.invoke() }
+        .create()
+        .show()
 }

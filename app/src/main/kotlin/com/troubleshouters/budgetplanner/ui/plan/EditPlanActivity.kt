@@ -10,6 +10,7 @@ import com.troubleshouters.budgetplanner.data.enums.PlanType
 import com.troubleshouters.budgetplanner.data.local.plan.Plan
 import com.troubleshouters.budgetplanner.databinding.ActivityEditPlanBinding
 import com.troubleshouters.budgetplanner.ui.viewmodel.PlanViewModel
+import com.troubleshouters.budgetplanner.utils.showConfirmationDialog
 import com.troubleshouters.budgetplanner.utils.showSnackbar
 import com.troubleshouters.budgetplanner.utils.showSuccessDialogWithAction
 import dagger.hilt.android.AndroidEntryPoint
@@ -71,15 +72,14 @@ class EditPlanActivity : AppCompatActivity() {
     }
 
     private fun updatePlan(plan: Plan) {
+        val closeActivity = { finish() }
         try {
             planViewModel.updatePlan(plan)
             showSuccessDialogWithAction(
-                this,
-                "Plan is updated successfully",
-                "OK"
-            ) {
-                finish()
-            }
+                context = this,
+                message = "Plan is updated successfully",
+                action = closeActivity
+            )
         } catch (e: Exception) {
             showSnackbar(binding.root, "Failed to update plan")
             Log.e("UpdatePlan", e.message.toString())
@@ -87,11 +87,26 @@ class EditPlanActivity : AppCompatActivity() {
     }
 
     private fun deletePlan(plan: Plan) {
-        try {
+        val closeActivity = { finish() }
+        val confirmAction = {
             planViewModel.deletePlan(plan)
-            finish()
-        } catch (e: Exception) {
+            showSuccessDialogWithAction(
+                context = this,
+                message = "Plan is deleted successfully",
+                action = closeActivity
+            )
+        }
 
+        try {
+            showConfirmationDialog(
+                context = this,
+                message = "Are you sure want to delete this Plan?",
+                confirmAction = confirmAction
+            )
+
+        } catch (e: Exception) {
+            showSnackbar(binding.root, "Failed to delete plan")
+            Log.e("DeletePlan", e.message.toString())
         }
     }
 }
