@@ -2,6 +2,7 @@ package com.troubleshouters.budgetplanner.ui.plan
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.troubleshouters.budgetplanner.R
 import com.troubleshouters.budgetplanner.databinding.ActivityCreatePlanBinding
@@ -59,17 +60,17 @@ class CreatePlanActivity : AppCompatActivity() {
     }
 
     private fun insertNewPlan(plan: Plan) {
+        val closeActivity = { finish() }
         try {
             viewModel.insertPlan(plan)
             showSuccessDialogWithAction(
-                this,
-                "Plan is saved successfully",
-                "OK"
-            ) {
-                finish()
-            }
+                context = this,
+                message = "Plan is saved successfully",
+                action = closeActivity
+            )
         } catch (e: Exception) {
             showSnackbar(binding.root, "Failed to save plan")
+            Log.e("Insert Plan", e.message.toString())
         }
     }
 }
