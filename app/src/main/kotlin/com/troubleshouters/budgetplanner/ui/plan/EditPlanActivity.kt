@@ -19,9 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class EditPlanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditPlanBinding
+    private lateinit var plan: Plan
     private val args: EditPlanActivityArgs by navArgs()
     private val planViewModel: PlanViewModel by viewModels()
-    private var checkedPlanType = PlanType.DAILY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +34,11 @@ class EditPlanActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val plan = args.plan
+        plan = args.plan
         val editable = Editable.Factory.getInstance()
         val titleEditable = editable.newEditable(plan.title)
         val budgetEditable = editable.newEditable(plan.budget.toString())
 
-        checkedPlanType = plan.planType
-        binding.chipGroupType.check(plan.planType.planTypeToViewId())
-        binding.chipGroupType.isEnabled = false
         binding.etTitle.text = titleEditable
         binding.etBudget.text = budgetEditable
     }
@@ -53,11 +50,8 @@ class EditPlanActivity : AppCompatActivity() {
             val budget = budgetText.toDoubleOrNull()
 
             if (title.isNotEmpty() && budget != null) {
-                val plan = Plan(
-                    planType = checkedPlanType,
-                    title = title,
-                    budget = budget
-                )
+                plan.title = title
+                plan.budget = budget
                 updatePlan(plan)
             } else {
                 showSnackbar(binding.root, "Title or/and budget is empty")
