@@ -93,6 +93,12 @@
         <item name="strokeWidth">0dp</item>
     </style>
 
+    <style name="Button.Delete">
+        <item name="backgroundTint">@color/light_gray</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
     <!-- Chip Styles -->
     <style name="ChipFilter" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="chipBackgroundColor">@color/chip_background_color</item>

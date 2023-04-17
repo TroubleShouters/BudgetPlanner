@@ -30,12 +30,13 @@
         app:layout_constraintTop_toBottomOf="@+id/view_plan_summary" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_plan_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/view_plan_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:listitem="@layout/view_plan_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
