@@ -16,7 +16,7 @@ class PlanViewModel @Inject constructor(
 
     fun getPlanById(planId: Long): LiveData<Plan?> = planRepository.getPlanById(planId)
 
-    fun getPlanBudgetForAMonth(): LiveData<Double> = planRepository.getPlanBudgetForAMonth()
+    fun getPlanBudgetForAMonth(): LiveData<Double?> = planRepository.getPlanBudgetForAMonth()
 
     fun insertPlan(plan: Plan) {
         viewModelScope.launch {

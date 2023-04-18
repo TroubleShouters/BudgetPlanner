@@ -24,6 +24,6 @@ interface PlanDao {
             "WHEN plan_type = 'DAILY' THEN budget * 30 " +
             "WHEN plan_type = 'WEEKLY' THEN budget * 4 " +
             "ELSE budget END) FROM plans")
-    fun getPlanBudgetForAMonth(): LiveData<Double>
+    fun getPlanBudgetForAMonth(): LiveData<Double?>
 
 }

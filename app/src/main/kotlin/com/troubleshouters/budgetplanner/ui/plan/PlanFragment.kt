@@ -67,7 +67,8 @@ class PlanFragment : Fragment() {
 
     private fun setupBudgetSum() {
         planViewModel.getPlanBudgetForAMonth().observe(viewLifecycleOwner) {budget ->
-            binding.viewPlanSummary.tvTotalBudget.text = budget.toInt().toString()
+            val budgetText = budget?.toInt()?.toString() ?: "0"
+            binding.viewPlanSummary.tvTotalBudget.text = budgetText
         }
     }
 

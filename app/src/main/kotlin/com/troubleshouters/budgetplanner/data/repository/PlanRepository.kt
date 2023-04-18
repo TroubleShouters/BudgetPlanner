@@ -22,7 +22,7 @@ class PlanRepository @Inject constructor(
         return planDao.getPlanById(planId)
     }
 
-    fun getPlanBudgetForAMonth(): LiveData<Double> {
+    fun getPlanBudgetForAMonth(): LiveData<Double?> {
         return planDao.getPlanBudgetForAMonth()
     }
 
