@@ -112,12 +112,8 @@
         <item name="iconTint">?colorOnTertiaryContainer</item>
     </style>
 
-    <style name="Button.Outlined">
-        <item name="backgroundTint">?colorSurface</item>
-        <item name="android:textColor">?colorPrimary</item>
-        <item name="iconTint">?colorPrimary</item>
-        <item name="strokeColor">?colorPrimary</item>
-        <item name="strokeWidth">2dp</item>
+    <style name="Button.Outlined" parent="Widget.Material3.Button.OutlinedButton.Icon">
+
     </style>
 
     <style name="Button.Delete">
