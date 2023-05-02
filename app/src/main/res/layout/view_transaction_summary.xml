@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corner"
-    android:backgroundTint="@color/white"
+    android:backgroundTint="?attr/colorSurface"
     android:padding="24dp">
 
     <TextView
@@ -22,7 +22,11 @@
         style="@style/Text.Regular14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_plan_type"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="February 15, 2023" />
 
@@ -32,7 +36,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_date"
+        android:textColor="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_type"
         tools:text="Lunch &amp; Transport" />
@@ -42,6 +47,7 @@
         style="@style/Text.Bold24"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintEnd_toEndOf="@+id/tv_plan_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_title"
@@ -55,10 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_plan_amount"
-        app:rpbBackgroundColor="@color/light_gray"
+        app:rpbBackgroundColor="?attr/colorSurfaceVariant"
         app:rpbCornerRadius="12dp"
         app:rpbProgress="50"
-        app:rpbProgressColor="@color/lime"
+        app:rpbProgressColor="?attr/colorPrimaryInverse"
         app:rpbShowProgressText="false" />
 
     <TextView
@@ -67,6 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintStart_toStartOf="@+id/roundedProgressBar"
         app:layout_constraintTop_toBottomOf="@+id/roundedProgressBar"
         tools:text="12.500" />
@@ -83,7 +90,7 @@
 
     <Button
         android:id="@+id/btn_add_income"
-        style="@style/Button.White"
+        style="@style/Button.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -97,7 +104,7 @@
 
     <Button
         android:id="@+id/btn_add_spending"
-        style="@style/Button.White"
+        style="@style/Button.Tertiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
