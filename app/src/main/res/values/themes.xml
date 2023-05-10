@@ -124,8 +124,8 @@
 
     <!-- Chip Styles -->
     <style name="ChipFilter" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipBackgroundColor">@color/chip_background_color</item>
-<!--        <item name="android:textColor">@color/black</item>-->
+        <item name="chipBackgroundColor">?colorPrimaryContainer</item>
+        <item name="android:textColor">?colorOnPrimaryContainer</item>
         <item name="fontFamily">@font/inter_medium</item>
         <item name="android:textSize">14sp</item>
     </style>
