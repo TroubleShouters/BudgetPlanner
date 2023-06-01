@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
     android:padding="16dp"
     tools:context=".ui.transactions.TransactionsFragment">
 
@@ -21,7 +20,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/white"
         android:padding="8dp"
         tools:listitem="@layout/view_transaction_item"
         app:layout_constraintBottom_toBottomOf="parent"

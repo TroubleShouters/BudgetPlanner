@@ -9,60 +9,15 @@
     tools:context=".ui.plan.CreatePlanActivity">
 
     <TextView
-        android:id="@+id/text_type"
-        style="@style/Text.Medium20"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/type"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_group_type"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:checkedChip="@id/chip_daily"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_type"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_daily"
-            style="@style/ChipFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/daily"
-            android:background="@drawable/rounded_corner"/>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_weekly"
-            style="@style/ChipFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/weekly"/>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_monthly"
-            style="@style/ChipFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/monthly" />
-
-    </com.google.android.material.chip.ChipGroup>
-
-    <TextView
         android:id="@+id/text_title"
         style="@style/Text.Medium20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/title"
         android:textColor="?colorOnSurface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chip_group_type" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -110,16 +65,27 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/button_update"
         style="@style/Button.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/create_plan"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/update_plan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <Button
+        android:id="@+id/button_delete"
+        style="@style/Button.Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_update"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

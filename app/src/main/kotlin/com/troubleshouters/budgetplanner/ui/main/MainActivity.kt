@@ -3,13 +3,16 @@ package com.troubleshouters.budgetplanner.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.troubleshouters.budgetplanner.R
 import com.troubleshouters.budgetplanner.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -19,6 +22,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupToolbar()
+        setupNavigationBar()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbar)
+    }
+
+    private fun setupNavigationBar() {
         val navigationView: BottomNavigationView = binding.bottomNavigationView
         val navigationController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
@@ -31,6 +43,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navigationController, appBarConfiguration)
         navigationView.setupWithNavController(navigationController)
-
     }
+
 }

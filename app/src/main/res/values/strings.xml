@@ -20,4 +20,7 @@
     <string name="title">Title</string>
     <string name="budget">Budget</string>
     <string name="transactions">Transactions</string>
+    <string name="delete">Delete</string>
+    <string name="update_plan">Update Plan</string>
+    <string name="edit_button">Edit button</string>
 </resources>
