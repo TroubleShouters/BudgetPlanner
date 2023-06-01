@@ -6,19 +6,17 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:background="@drawable/rounded_corner"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="?colorSurface">
 
-    <ImageButton
+    <Button
         android:id="@+id/btn_edit"
+        style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
+        android:contentDescription="@string/edit_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_edit"
-        android:contentDescription="@string/edit_plan_button" />
+        app:icon="@drawable/ic_edit"/>
 
     <TextView
         android:id="@+id/tv_plan_type"
@@ -35,6 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:textColor="?colorOnSurface"
         app:layout_constraintEnd_toStartOf="@+id/btn_edit"
         app:layout_constraintStart_toStartOf="@+id/tv_plan_type"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_type"
@@ -45,6 +44,7 @@
         style="@style/Text.Bold24"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="?colorOnSurface"
         app:layout_constraintEnd_toEndOf="@+id/tv_plan_title"
         app:layout_constraintStart_toStartOf="@+id/tv_plan_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_title"
@@ -55,8 +55,10 @@
         style="@style/Text.Medium14.Blue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="?colorTertiary"
         app:layout_constraintEnd_toEndOf="@+id/tv_plan_amount"
         app:layout_constraintStart_toStartOf="@+id/tv_plan_amount"
         app:layout_constraintTop_toBottomOf="@+id/tv_plan_amount"
         tools:text="Total 750.000 a month" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corner"
-    android:backgroundTint="@color/lime"
+    android:backgroundTint="?colorPrimaryContainer"
     tools:context=".ui.transactions.TransactionsFragment">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:textColor="?colorOnTertiaryContainer"
         android:text="@string/total_budget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:textColor="?colorOnTertiaryContainer"
         app:layout_constraintEnd_toEndOf="@+id/tv_title_total_budget"
         app:layout_constraintStart_toStartOf="@+id/tv_title_total_budget"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_total_budget"
